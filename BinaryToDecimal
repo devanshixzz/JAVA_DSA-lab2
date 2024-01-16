@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+
+public class BinaryToDecimal {
+public static void main(String[] args) { Scanner scanner = new Scanner(System.in);
+
+// Read an 8-bit binary integer as a string
+System.out.print("Enter an 8-bit binary integer (e.g., 11001010): "); String binaryString = scanner.next();
+
+// Convert the binary string to decimal using built-in function int decimalValue = Integer.parseInt(binaryString, 2);
+
+// Print the decimal value
+System.out.println("Decimal value: " + decimalValue);
+}
+}
