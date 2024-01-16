@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+
+public class CurrencyNotesPayment { public static void main(String[] args) {
+Scanner scanner = new Scanner(System.in);
+ 
+// Read the number of notes available for each denomination int[] purse = new int[7];
+System.out.println("Enter the number of notes for denominations (in increasing order):"); for (int i = 0; i < 7; i++) {
+purse[i] = scanner.nextInt();
+}
+
+
+// Read the amount to be paid
+System.out.print("Enter the amount to be paid (less than Rs. 1000): "); int amount = scanner.nextInt();
+
+// Calculate the minimum number of notes needed int[] notesUsed = new int[7];
+int[] denominations = {100, 50, 20, 10, 5, 2, 1};
+
+
+for (int i = 0; i < 7; i++) {
+if (amount >= denominations[i]) {
+notesUsed[i] = Math.min(amount / denominations[i], purse[i]); amount -= notesUsed[i] * denominations[i];
+}
+}
+
+
+// Check if the exact amount can be paid if (amount == 0) {
+System.out.println("Currency Count:"); for (int i = 0; i < 7; i++) {
+if (notesUsed[i] > 0) {
+System.out.println("Rs. " + denominations[i] + " : " + notesUsed[i]);
+}
+}
+} else {
+ 
+System.out.println("Failed to Pay");
+}
+}
+}
+
